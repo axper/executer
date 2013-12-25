@@ -8,7 +8,7 @@ Usage:
 2. Create a file callec `command.txt` in the same directory
 3. In `command.txt`, put the other executable's name followed by it's parameters. For example:
     
-	game.exe -fullscreen
+	    game.exe -fullscreen
 
 4. Run `caller.exe`
 
