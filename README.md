@@ -1,6 +1,21 @@
 Calls another executable with parameters specified in a file
 ========
 
+Building on Linux
+-----------------
+This project uses Cmake build system.
+On Linux, simply type:
+
+	cmake .
+	make
+
+The resulting executable will be called `caller`
+
+Building on Windows
+-------------------
+See http://www.cmake.org/cmake/help/runningcmake.html
+
+
 Usage:
 ------
 
