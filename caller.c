@@ -4,27 +4,29 @@
 #define FILENAME_PARAM "command.txt"
 #define MAX_LENGTH 80
 
+int quit(const char * message)
+{
+	printf("%s\n", message);
+	printf("Press enter to exit...\n");
+	getchar();
+	return EXIT_FAILURE;
+}
+
 int main()
 {
 	char command[ MAX_LENGTH ];
 	FILE * file = fopen(FILENAME_PARAM, "r");
 	if (file == NULL) {
-		printf("Could not open " FILENAME_PARAM " for reading\n");
-		printf("Press enter to exit...\n");
-
-		getchar();
-		return 0;
+		return quit("Could not open " FILENAME_PARAM " for reading");
 	}
 
 	if (fgets(command, MAX_LENGTH, file) == NULL) {
-		printf("Error when reading from " FILENAME_PARAM "\n");
-		printf("Press enter to exit...\n");
-
-		getchar();
-		return 0;
+		return quit("Error when reading command from " FILENAME_PARAM);
 	}
 
-	system(command);
+	if (system(command) == -1) {
+		return quit("Could not execute the command in " FILENAME_PARAM);
+	}
 
 	fclose(file);
 
